@@ -1,0 +1,561 @@
+.waiting-div{
+    display: none;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-image: url("../img/bg.jpg");
+    /* background-image: radial-gradient(#00D312,#004203); */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-image: linear-gradient(to bottom right, steelblue, cadetblue);  */
+    /* background-image: linear-gradient(to bottom right, #1D976C, #93F9B9);  */
+    /* background-image: linear-gradient(to bottom right, #034c59, steelblue); */
+}
+#button-score{
+    position:absolute; 
+    top:110px; 
+    right:25%;
+}
+#button-rule{
+    position:absolute; 
+    top:70px; 
+    right:25%;
+}
+.game-divition{
+    margin: 0px;
+    padding: 0px;
+}
+
+.card-field{
+    background-image: url("../img/middle.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.player-top{
+    position: relative;
+    top: 60px;
+    width: 530px;
+    height: 200px;
+}
+
+.player-bot{
+    width: 530px;
+    height: 200px;
+}
+
+.player-left{
+    width: 200px;
+    height: 525px;
+}
+
+.player-right{
+    width: 200px;
+    height: 525px;
+}
+
+.player-bot>img{height: 140px;}
+.player-top>img{height: 140px;}
+.player-left>img{height: 140px;}
+.player-right>img{height: 140px;}
+
+.player-right>img,.player-left>img{
+    position: relative;
+    top: -53px;
+}
+
+.turn-sign{
+    position:relative; 
+    top: 200px; 
+    color:white
+}
+
+.pass-sign-top{
+    width:100px; 
+    height:50px; 
+    position: absolute; 
+    top:170px; 
+    right: 130px; 
+    padding-top:10px; 
+    color:greenyellow;
+}
+.pass-sign-left{
+    width:100px; 
+    height:50px; 
+    position: absolute; 
+    left:210px; 
+    padding-top:10px;
+    color:greenyellow;
+}
+
+.pass-sign-right{
+    width:100px; 
+    height:50px; 
+    position: absolute; 
+    right:210px; 
+    padding-top:10px; 
+    color:greenyellow;
+}
+.pass-sign-bot{
+    width:100px; 
+    height:50px; 
+    position: absolute; 
+    bottom:250px; 
+    right: 130px; 
+    padding-top:10px; 
+    color:greenyellow;
+}
+.p4-timer{
+    position: absolute; 
+    right:210px;
+}
+.p3-timer{
+    position: absolute; 
+    top:185px; 
+    right: 130px;
+}
+
+.p2-timer{
+    position: absolute; 
+    left:210px;
+}
+.player-timer{
+    position: absolute; 
+    bottom:245px; 
+    right: 130px;
+}
+.myname{
+    position:relative; 
+    top:-5px;
+}
+.card-field{
+    z-index: 10; 
+    max-width: 280px; 
+    max-height: 280px;
+}
+
+.field-top{
+    width: 247px; 
+    height: 140px; 
+    position: absolute; 
+    top: 20px;
+}
+.field-bot{
+    width: 247px; 
+    height: 140px; 
+    position: absolute; 
+    bottom: 20px;
+}
+.field-left{
+    width: 247px; 
+    height: 140px; 
+    position: absolute; 
+    top:70px; 
+    left:-30px;
+}
+.field-right{
+    width: 247px; 
+    height: 140px; 
+    position: absolute; 
+    top:70px; 
+    right:-30px;
+}
+.start-timer{
+    z-index:100; 
+    position: relative; 
+    left: 55px; 
+    top:70px;
+}
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+.ver-margin {
+    margin-bottom: -108px;
+}
+.hor-margin{
+    clear: both;
+    margin-left: -60px;
+    z-index: 100;
+}
+
+.btn-div{
+    position: absolute;
+    top: -100px;
+    display: none;
+}
+
+.btn-play,.btn-pass{
+    border: 3px solid aliceblue;
+    margin-left: 1px !important;
+    font-weight: bold;
+}
+
+.card-bg-hor{
+    position: absolute;
+    width: 530px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 15px;   
+    border: 5px solid whitesmoke; 
+    /* background-image: url("../img/hand-bg-hor.png");
+    background-size: cover; */
+    background-image: radial-gradient(#e73827, #6f0000, #200122);
+    /* background-image: linear-gradient(to bottom right, #0F2027, #2C5364);  */
+    /* background-image: linear-gradient(to bottom right, #e52d27, #b31217);  */
+    /* background-image: linear-gradient(to bottom right, #034c59, steelblue); */
+
+}
+
+.card-bg-ver{
+    position: absolute;
+    width: 200px;
+    height: 525px;
+    border-radius: 15px;
+    border: 5px solid whitesmoke; 
+    /* background-image: url("../img/hand-bg-ver.png");
+    background-size: cover; */
+    background-image: radial-gradient(#e73827, #6f0000, #200122);
+    /* background-image: linear-gradient(to bottom right, #0F2027, #2C5364);  */
+    vertical-align: middle;
+}
+
+.card-bg-top{
+    margin-top: -15px; 
+    text-align: center;
+}
+
+.card-bg-bot{
+    margin-top: -45px; 
+}
+
+.card-bg-right{
+    margin-left: -15px;
+}
+.card-bg-left{
+    margin-left: 15px;
+}
+
+.player-name{
+    color: white;
+}
+
+.pname-right{
+    height:515px;
+    padding: 0px;
+    margin-top: -20px;
+    margin-left: 3px;
+}
+.text-rotate-left{
+    position: absolute;
+    top: 50%;
+    transform: rotate(-90deg);
+    min-width: 500px;
+}
+.pname-left{
+    position: relative; 
+    left: 160px;
+    height:515px;
+    padding: 0px;
+    margin-top: -20px;
+    margin-left: 3px;
+}
+.text-rotate-right{
+    position: absolute;
+    top: 50%;
+    transform: rotate(90deg);
+    min-width: 500px;
+}
+.pname-top{
+    width: 520px;
+    position: absolute;
+    bottom: 0px;
+}
+
+@media screen and (max-width: 1800px) {
+    body{
+        zoom: 90%;
+    }
+}
+@media screen and (max-width: 1500px) {
+    body{
+        zoom: 80%;
+    }
+}
+@media screen and (max-width: 1390px) {
+    body{
+        zoom: 70%;
+    }
+}
+@media screen and (max-width: 900px) {
+    html{
+        position: fixed;
+    }
+    body{
+        margin:0px!important;
+        display: grid;
+        width: 100%;
+        place-items: center;
+        background-image: url("../img/bg.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        zoom: 100%;
+    }
+    #button-score{
+        padding:0px;
+        position:absolute; 
+        width : 50px;
+        height : 30px;
+        font-size: 12px;
+        top:40px; 
+        right:20px;
+    }
+    #button-rule{
+        padding:0px;
+        position:absolute; 
+        width : 100px;
+        height : 30px;
+        font-size: 12px;
+        top:10px; 
+        right:20px;
+    }
+    .player-name{
+        font-size:12px;
+    }
+    .pname-right{
+        height:260px;
+        padding: 0px;
+        margin-top: -20px;
+        margin-left: 2px;
+    }
+    .pname-left{
+        position: relative; 
+        left: 80px;
+        height:260px;
+        padding: 0px;
+        margin-top: -20px;
+        margin-left: 6px;
+    }
+    .pname-top{
+        width: 260px;
+        position: absolute;
+        bottom: -10px;
+    }
+    .myname{
+        position:relative; 
+        top:-13px;
+    }
+    .turn-sign{
+        position:relative; 
+        top: 90px; 
+        color:white;
+    }
+    .turn-sign>h1{
+        font-size:20px;
+    }
+    .btn-div{
+        position: absolute;
+        top:-70px;
+        z-index: 100;
+    }
+    .btn-play,.btn-pass{
+        padding:0px!important;
+        margin-left: 0px!important;
+        width:50px;
+        height: 25px;
+        border: 1px solid aliceblue;
+        font-weight: 100;
+        font-size:14px!important;
+    }
+    .player-bot>img{height: 80px; position: relative;bottom: 30px;}
+    .player-top>img{height: 80px; position: relative;bottom: 10px;}
+    .player-left>img{height: 80px; position: relative;left: 10px;}
+    .player-right>img{height: 80px; position: relative;right: 10px;}
+    
+    .player-top{width: 270px;height: 100px;position: relative;top: 20px;}
+    .player-bot{width: 270px;height: 100px;position:relative; bottom:60px;}
+    .player-left{width: 100px;height: 270px; position:relative; left:70px; top:-30px;}
+    .player-right{width: 100px;height: 270px; position:relative; right:70px; top:-30px;}
+
+    .ver-margin {margin-bottom: -97px;}
+    .hor-margin{clear: both;margin-left: -35px;z-index: 100;}
+
+    .card-bg-hor{
+        position: absolute;
+        width: 270px;
+        height: 100px;
+        z-index: -1;
+        border-radius: 5px;   
+        border: 2px solid whitesmoke; 
+        background-image: radial-gradient(#e73827, #6f0000, #200122);
+    }
+    
+    .card-bg-ver{
+        position: absolute;
+        top:-5px;
+        width: 100px;
+        height: 270px;
+        border-radius: 5px;
+        border: 2px solid whitesmoke; 
+        background-image: radial-gradient(#e73827, #6f0000, #200122);
+        vertical-align: middle;
+    }
+    .card-field{
+        z-index: 10; 
+        max-width: 100px; 
+        max-height: 100px;
+        position: relative;
+        bottom:45px;
+    }
+    
+    .field-top{
+        width: 140px; 
+        height: 80px; 
+        position: absolute; 
+        top: 5px;
+        left : -20px;
+    }
+    .field-bot{
+        width: 140px; 
+        height: 80px; 
+        position: absolute; 
+        bottom: -10px;
+        left:-20px;
+    }
+    .field-left{
+        width: 140px; 
+        height: 80px; 
+        position: absolute; 
+        top:10px; 
+        left:-35px;
+    }
+    .field-right{
+        width: 140px; 
+        height: 80px; 
+        position: absolute; 
+        top:10px; 
+        right:-25px;
+    }
+    .start-timer{
+        z-index:100; 
+        position: relative; 
+        left:0px; 
+        top:15px;
+    }
+    .start-timer>video{
+        height:70px;
+    }
+    .img-card-field{
+        height:70px;
+    }
+    .pass-sign>center>h3{
+        font-size:14px;
+    }
+    .pass-sign-top{
+        position: absolute; 
+        top:70px; 
+        right: 50px; 
+    }
+    .pass-sign-left{
+        position: absolute; 
+        left:100px; 
+    }
+    
+    .pass-sign-right{
+        position: absolute; 
+        right:100px; 
+    }
+    .pass-sign-bot{
+        position: absolute; 
+        bottom:130px; 
+        right: 50px; 
+    }
+
+    .p4-timer{position: absolute;right:130px;}
+    .p3-timer{position: absolute;top:95px;right: 70px;}
+    .p2-timer{position: absolute;left:130px;}
+    .player-timer{position: absolute;bottom:145px;right: 70px;}
+
+    .p4-timer>video{width: 35px; height: 35px;}
+    .p3-timer>video{width: 35px; height: 35px;}
+    .p2-timer>video{width: 35px; height: 35px;}
+    .player-timer>video{width: 35px; height: 35px;}
+}
+
+@media screen and (max-width: 800px) {
+    .player-left>img{height: 80px; position: relative;left: 10px;}
+    .player-right>img{height: 80px; position: relative;right: 10px;}
+    .player-left{width: 100px;height: 270px; position:relative; left:0px; top:-30px;}
+    .player-right{width: 100px;height: 270px; position:relative; right:0px; top:-30px;}
+
+    .pass-sign-top{
+        position: absolute; 
+        top:70px; 
+        right: 40px; 
+    }
+    .pass-sign-bot{
+        position: absolute; 
+        bottom:130px; 
+        right: 40px; 
+    }
+    .pass-sign-left{
+        position: absolute; 
+        left:90px; 
+    }
+    
+    .pass-sign-right{
+        position: absolute; 
+        right:90px; 
+    }
+
+    .p4-timer{position: absolute;right:110px;}
+    .p3-timer{position: absolute;top:85px;right: 70px;}
+    .p2-timer{position: absolute;left:110px;}
+    .player-timer{position: absolute;bottom:140px;right: 70px;}
+}
+
+@media screen and (max-width: 450px) {
+    .player-left>img{height: 80px; position: relative;left: 10px;}
+    .player-right>img{height: 80px; position: relative;right: 10px;}
+    .player-bot>img{height: 80px; position: relative;bottom: 30px;}
+    .player-top>img{height: 80px; position: relative;bottom: 10px;}
+
+    .player-top{width: 270px;height: 100px;position: relative;top: 50px;}
+    .player-left{width: 100px;height: 270px; position:relative; left:0px; top:60px;}
+    .player-right{width: 100px;height: 270px; position:relative; right:0px; top:60px;}
+    .player-bot{width: 270px;height: 100px;position:relative; bottom:-120px;}
+
+    .pass-sign-top{position: absolute; top:70px; right: 20px; }
+    .pass-sign-bot{position: absolute; bottom:130px; right: 20px;}
+    .pass-sign-left{position: absolute; left:70px; }    
+    .pass-sign-right{position: absolute; right:70px;}
+    
+    .card-field{
+        z-index: 10; 
+        max-width: 100px; 
+        max-height: 100px;
+        position: relative;
+        bottom:-45px;
+    }
+    
+    .start-timer{
+        z-index:100; 
+        position: relative; 
+        left:0px; 
+        top:15px;
+    }
+    .start-timer>video{
+        height:70px;
+    }
+    .p4-timer{position: absolute;right:100px;}
+    .p3-timer{position: absolute;top:85px;right: 10px;}
+    .p2-timer{position: absolute;left:100px;}
+    .player-timer{position: absolute;bottom:140px;right: 10px;}
+}

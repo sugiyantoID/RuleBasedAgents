@@ -1,0 +1,22 @@
+body{
+    height: 100vh;
+    background-color: steelblue;
+    /*background-image: linear-gradient(to bottom right, steelblue, cadetblue);*/
+    background-image: linear-gradient(to bottom right, #034c59, steelblue);
+}
+fieldset{
+    border: none;
+    border-radius: 10px;
+    background-color:aliceblue; 
+    padding: 25px;
+    margin: 0px;
+}
+h3{
+    font-weight: bold;
+    margin:-10px 0px;
+}
+
+.join_button{
+    height: 40px; 
+    font-weight: bold;
+}

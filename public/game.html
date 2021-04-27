@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Big Two</title>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="/css/waiting.css">
+        <link rel="stylesheet" href="/css/chat.css">
+    </head>
+
+    <body>
+        <div class="waiting-div row justify-content-md-center justify-content-sm-center">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h1>Waiting Room</h1>
+            </div>
+            <div id='player-room' class="col-sm-6 ">
+                <!-- disini div buat masing-masing player yang masuk -->
+            </div>
+
+            <div id='bot-option' class="col-sm-4">
+                <!-- div buat milih BOT -->
+                
+                    <!-- <div class="form-group row justify-content-md-center justify-content-sm-center">
+                        <div class="col-sm-8">
+                            <label for="boturl">BOT URL</label>
+                            <input type="text" class="form-control" id="boturl" placeholder="Enter URL">
+                            <small id="" class="form-text">Input your own BOT API to play</small>
+                        </div>
+                    </div>
+                    <br> -->
+
+                    <div class="form-group row justify-content-md-center justify-content-sm-center">
+                        <div class="col-sm-8">
+                            <!-- <label for="choosebot">Or select BOT to play</label> -->
+                            <select id="choosebot" class="form-control">
+                              <option selected value="http://127.0.0.1:5000/RuleBased1/">Rule-based AI</option>
+                              <!-- <option>Coming soon</option> -->
+                            </select>
+                        </div> 
+                    </div>
+                    <button class="btn btn-primary" onclick="botStart()">Play</button>
+                  
+            </div>
+        </div>
+        
+
+
+        <!-- modal rule game -->
+        <!-- Button trigger modal rule game -->
+        <button id="button-rule" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
+            Game Rules
+        </button>  
+
+
+        <div class="game-divition row">
+            <!-- -----------------------------------------top----------------------------------- -->
+            <!-- Modal End Game -->
+            <!-- Button trigger modal end game -->
+            <button id="button-score" type="button" class="btn btn-success" data-toggle="modal" data-target="#modalScore">
+                Score
+            </button>
+
+            <div class="player-top container col-6 d-flex justify-content-center">
+                <div class="card-bg-hor card-bg-top">
+                   <div class="pname-top">
+                       <h3 class="player-name p3name">p3name</h3>
+                   </div> 
+                   <div class="turn-sign">
+                       <h1>Your Turn</h1>
+                   </div>
+                </div>
+                <div class="pass-sign pass-sign-top"></div>
+                <div class="p3-timer"></div>
+            </div>
+   
+            <div class="container">
+                <div class="row">
+                    <!-- -----------------------------------------left------------------------------------->
+                    <div class="player-left col-2 d-flex align-items-center flex-column justify-content-center">
+                        <div class="card-bg-ver card-bg-left">
+                            <div class="col-1 pname-left d-flex justify-content-center">
+                                <h3 class="player-name text-rotate-right p2name d-flex justify-content-center"> p2name </h3>
+                            </div>
+                        </div>
+                        <div class="pass-sign pass-sign-left"></div>
+                        <div class="p2-timer"></div>
+                    </div>
+            
+                    <!-- -----------------------------------------field------------------------------------->
+                    <div class=" col-sm-8 col-8 d-flex justify-content-center align-items-center flex-column">
+                        <div class=" card-field col-sm-8 col-8">
+                            <div class="start-timer">
+                                <!-- <video src="img/timer_5.mp4" type="video/mp4"></video> -->
+                                <!-- <video autoplay> <source src="img/timer_5.mp4" type="video/mp4"> </video> -->
+                            </div>
+
+                            <div class="field field-top d-flex justify-content-center">
+                            </div>
+
+                            <div class="field field-bot d-flex justify-content-center">
+                            </div>
+
+                            <div class="field field-left d-flex justify-content-center rotate90">
+                            </div>
+
+                            <div class="field field-right d-flex justify-content-center rotate90">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- -----------------------------------------right------------------------------------->
+                    <div class="player-right col-2 d-flex align-items-center flex-column justify-content-center">
+                        <div class="card-bg-ver card-bg-right">
+                            <div class="col-1 pname-right d-flex justify-content-center">
+                                <h3 class="player-name text-rotate-left p4name d-flex justify-content-center"> p4name</h3>
+                            </div>
+                        </div>
+                        <div class="pass-sign pass-sign-right"></div>
+                        <div class="p4-timer"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- -----------------------------------------bot------------------------------------->
+            <div class="player-bot container col-6 d-flex justify-content-center">
+                <div class="card-bg-hor card-bg-bot">
+                    <center><h3 class="player-name myname">myname</h3></center>
+                </div>
+
+                <div class="pass-sign pass-sign-bot">
+                </div>
+
+                <div class="btn-div btn-group btn-group-lg">
+                    <button class="btn btn-play btn-primary" onclick="playButton()">PLAY</button>
+                    <button class="btn btn-pass btn-danger" onclick="passButton()">PASS</button>
+                </div>
+
+                <div class="player-timer">
+                </div>
+            </div>
+        </div>
+
+        <!-- ------------------------------ chat ------------------------------ -->
+        <div class="chat-div game-divition">
+            <div class="chat_main">
+                <ol id="messages" class="chat_messages"></ol>
+            
+                <div class="chat_footer">
+                    <form id="message-form">
+                        <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
+                    </form>
+                </div>
+            </div>
+
+            <script id="message-template" type="text/template">
+                <li class="message">
+                    <div class="message_title">
+                        <h4>{{from}}</h4>
+                    </div>
+                    <div class="message_body">
+                        <p>{{text}}</p>
+                    </div>
+                </li>
+            </script>
+        </div>
+
+
+        <!-------------------------------------- modal -------------------------------->
+        <div w3-include-html="modal.html"></div>
+            
+        <!-- Modal end game-->
+        <div class="modal fade" id="modalScore" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalCenterTitle" style="color:black">Score <span class="game-number"></span></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="" style="color:black;">
+                        <h3 class="high-score"></h3>
+                        <h3 class="second-score"></h3>
+                        <h3 class="third-score"></h3>
+                        <h3 class="fourth-score"></h3>
+                    </div>
+                    <hr>
+                    <div class="win-score" style="color:black;">
+                        <h3 class="high-win"></h3>
+                        <h3 class="second-win"></h3>
+                        <h3 class="third-win"></h3>
+                        <h3 class="fourth-win"></h3>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close-score" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/libs/jquery-3.3.1.min.js"></script>
+        <script src="js/libs/deparam.js"></script>
+        <script src="js/libs/moment.js"></script>
+        <script src="js/libs/mustache.js"></script>
+        <script src="js/gameroom.js"></script>
+        <script src="js/animation.js"></script>
+        <script src="js/button.js"></script>
+        <script src="js/chat.js"></script>
+        <script src="bootstrap-4.1.3-dist/js/bootstrap.js"></script>
+        <script src="js/libs/includehtml.js"></script>
+        <script>
+            includeHTML();
+        </script>
+    </body>
+</html>

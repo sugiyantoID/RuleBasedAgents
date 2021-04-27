@@ -1,0 +1,53 @@
+body{
+    color: aliceblue;
+    text-align: center;
+    padding-top: 10vh; 
+    height: 100vh;
+    background-image: radial-gradient(#e73827, #6f0000, #200122);
+    background-size: cover;
+}
+
+#player-room{
+    margin-top:25px;
+}
+#player-room>div{
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.game-divition{
+    display: none;
+}
+#bot-option{
+    position:absolute; 
+    bottom: 150px; 
+    display:none
+}
+#button-rule{
+    position:absolute; 
+    top:70px; 
+    right:25%;
+}
+
+@media screen and (max-width: 900px) {
+    #bot-option{
+        position:absolute; 
+        bottom: 0px; 
+        display:none
+    }
+    #button-rule{
+        position:absolute; 
+        top:70px; 
+        right:5%;
+    }
+    h1{
+        font-size: 20px;
+    }
+    h3{
+        font-size: 16px;
+        margin: -5px;
+    }
+    #player-room{
+        margin-top:-5px;
+    }
+}
